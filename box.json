@@ -7,497 +7,497 @@
     },
     "servers": [
       {
-        "tag": "google",
+        "tag": "GOOGLE",
         "address": "https://8.8.8.8/dns-query",
         "detour": "proxy"
       },
       {
-        "tag": "tx",
+        "tag": "TX",
         "address": "https://120.53.53.53/dns-query",
         "detour": "direct"
       },
       {
-        "tag": "fakeip",
+        "tag": "FAKEIP",
         "address": "fakeip"
       }
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "tx",
+        "outbound": "ANY",
+        "server": "TX",
         "disable_cache": true
       },
       {
         "clash_mode": "Direct",
-        "server": "tx"
+        "server": "TX"
       },
       {
         "clash_mode": "Global",
-        "server": "fakeip"
+        "server": "FAKEIP"
       },
       {
         "query_type": [
           "A",
           "AAAA"
         ],
-        "server": "fakeip",
+        "server": "FAKEIP",
         "rewrite_ttl": 1
       },
       {
-        "rule_set": "geosite-cn",
-        "server": "tx"
+        "rule_set": "GEOSITE-CN",
+        "server": "TX"
       }
     ],
-    "final": "google",
+    "final": "GOOGLE",
     "independent_cache": true
   },
   "route": {
     "rules": [
       {
         "port": 53,
-        "outbound": "dns-out"
+        "outbound": "DNS-OUT"
       },
       {
         "ip_is_private": true,
-        "outbound": "direct"
+        "outbound": "DIRECT"
       },
       {
         "clash_mode": "Direct",
-        "outbound": "direct"
+        "outbound": "DIRECT"
       },
       {
         "clash_mode": "Global",
         "outbound": "GLOBAL"
       },
       {
-        "rule_set": "bilibili",
-        "outbound": "bilibili"
+        "rule_set": "BILIBILI",
+        "outbound": "BILIBILI"
       },
       {
         "rule_set": [
-          "geoip-netflix",
-          "geosite-netflix"
+          "GEOIP-NETFLIX",
+          "GEOSITE-NETFLIX"
         ],
-        "outbound": "netflix"
+        "outbound": "NETFLIX"
       },
       {
-        "rule_set": "bahamut",
-        "outbound": "bahamut"
+        "rule_set": "BAHAMUT",
+        "outbound": "BAHAMUT"
       },
       {
-        "rule_set": "youtube",
-        "outbound": "youtube"
+        "rule_set": "YOUTUBE",
+        "outbound": "YOUTUBE"
       },
       {
-        "rule_set": "openai",
-        "outbound": "openai"
+        "rule_set": "OPENAI",
+        "outbound": "OPENAI"
       },
       {
         "rule_set": [
-          "geoip-google",
-          "geosite-google"
+          "GEOIP-GOOGLE",
+          "GEOSITE-GOOGLE"
         ],
-        "outbound": "google"
+        "outbound": "GOOGLE"
       },
       {
         "rule_set": [
-          "geoip-apple",
-          "geosite-apple"
+          "GEOIP-APPLE",
+          "GEOSITE-APPLE"
         ],
-        "outbound": "apple"
+        "outbound": "APPLE"
       },
       {
         "rule_set": [
-          "geoip-telegram",
-          "geosite-telegram"
+          "GEOIP-TELEGRAM",
+          "GEOSITE-TELEGRAM"
         ],
-        "outbound": "telegram"
+        "outbound": "TELEGRAM"
       },
       {
         "rule_set": [
-          "geoip-cn",
-          "geosite-cn"
+          "GEOIP-CN",
+          "GEOSITE-CN"
         ],
-        "outbound": "cn"
+        "outbound": "CN"
       },
       {
-        "rule_set": "geolocation-!cn",
-        "outbound": "proxy"
+        "rule_set": "GEOLOCATION-!CN",
+        "outbound": "PROXY"
       }
     ],
     "rule_set": [
       {
-        "tag": "geoip-apple",
+        "tag": "GEOIP-APPLE",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/apple.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-apple",
+        "tag": "GEOSITE-APPLE",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/apple.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "bahamut",
+        "tag": "BAHAMUT",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/bahamut.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "bilibili",
+        "tag": "BILIBILI",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/bilibili.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-cn",
+        "tag": "GEOIP-CN",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-cn",
+        "tag": "GEOSITE-CN",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-google",
+        "tag": "GEOIP-GOOGLE",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/google.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-google",
+        "tag": "GEOSITE-GOOGLE",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/google.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geolocation-!cn",
+        "tag": "GEOLOCATION-!CN",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-netflix",
+        "tag": "GEOIP-NETFLIX",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/netflix.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-netflix",
+        "tag": "GEOSITE-NETFLIX",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/netflix.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "openai",
+        "tag": "OPENAI",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-telegram",
+        "tag": "GEOIP-TELEGRAM",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/telegram.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-telegram",
+        "tag": "GEOSITE-TELEGRAM",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/telegram.srs",
         "download_detour": "direct"
       },
       {
-        "tag": "youtube",
+        "tag": "YOUTUBE",
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/youtube.srs",
         "download_detour": "direct"
       }
     ],
-    "final": "final",
+    "final": "FINAL",
     "auto_detect_interface": true
   },
   "outbounds": [
     {
-      "tag": "proxy",
+      "tag": "PROXY",
       "type": "selector",
       "outbounds": [
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto",
-        "direct"
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO",
+        "DIRECT"
       ],
-      "default": "all-auto"
+      "default": "ALL-AUTO"
     },
     {
-      "tag": "google",
+      "tag": "GOOGLE",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "proxy"
+      "default": "PROXY"
     },
     {
-      "tag": "apple",
+      "tag": "APPLE",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "direct"
+      "default": "DIRECT"
     },
     {
-      "tag": "telegram",
+      "tag": "TELEGRAM",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "proxy"
+      "default": "PROXY"
     },
     {
-      "tag": "bilibili",
+      "tag": "BILIBILI",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "direct"
+      "default": "DIRECT"
     },
     {
-      "tag": "netflix",
+      "tag": "NETFLIX",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "proxy"
+      "default": "PROXY"
     },
     {
-      "tag": "bahamut",
+      "tag": "BAHAMUT",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "proxy"
+      "default": "PROXY"
     },
     {
-      "tag": "youtube",
+      "tag": "YOUTUBE",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "proxy"
+      "default": "PROXY"
     },
     {
-      "tag": "openai",
+      "tag": "OPENAI",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "proxy"
+      "default": "PROXY"
     },
     {
-      "tag": "cn",
+      "tag": "CN",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "direct"
+      "default": "DIRECT"
     },
     {
-      "tag": "final",
+      "tag": "FINAL",
       "type": "selector",
       "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "PROXY",
+        "DIRECT",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "proxy"
+      "default": "PROXY"
     },
     {
-      "tag": "hk",
+      "tag": "HK",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "tw",
+      "tag": "TW",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "jp",
+      "tag": "JP",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "sg",
+      "tag": "SG",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "us",
+      "tag": "US",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "all",
+      "tag": "ALL",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "hk-auto",
+      "tag": "HK-AUTO",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -505,7 +505,7 @@
       "tolerance": 50
     },
     {
-      "tag": "tw-auto",
+      "tag": "TW-AUTO",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -513,7 +513,7 @@
       "tolerance": 50
     },
     {
-      "tag": "jp-auto",
+      "tag": "JP-AUTO",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -521,7 +521,7 @@
       "tolerance": 50
     },
     {
-      "tag": "sg-auto",
+      "tag": "SG-AUTO",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -529,7 +529,7 @@
       "tolerance": 50
     },
     {
-      "tag": "us-auto",
+      "tag": "US-AUTO",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -537,7 +537,7 @@
       "tolerance": 50
     },
     {
-      "tag": "all-auto",
+      "tag": "ALL-AUTO",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -548,29 +548,29 @@
       "tag": "GLOBAL",
       "type": "selector",
       "outbounds": [
-        "direct",
-        "proxy",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
+        "DIRECT",
+        "PROXY",
+        "HK",
+        "HK-AUTO",
+        "TW",
+        "TW-AUTO",
+        "JP",
+        "JP-AUTO",
+        "SG",
+        "SG-AUTO",
+        "US",
+        "US-AUTO",
+        "ALL",
+        "ALL-AUTO"
       ],
-      "default": "direct"
+      "default": "DIRECT"
     },
     {
-      "tag": "direct",
+      "tag": "DIRECT",
       "type": "direct"
     },
     {
-      "tag": "dns-out",
+      "tag": "DNS-OUT",
       "type": "dns"
     }
   ],
