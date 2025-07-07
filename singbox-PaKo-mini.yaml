@@ -24,10 +24,10 @@ route:
     - { rule_set: [ geoip-google, geosite-google ], outbound: 🔍 Google }
     - { rule_set: geosite-ai, outbound: 🤖 AI }
     - { rule_set: geosite-youtube, outbound: 📹 YouTube }
-    - { rule_set: geosite-tiktok, outbound: 🎵 TikTok }
+    - { rule_set: geosite-tiktok, outbound: 🎥 TikTok }
     - { rule_set: geosite-line, outbound: 🧸 Line }
     - { rule_set: [ geoip-telegram, geosite-telegram ], outbound: 📲 Telegram }
-    - { rule_set: [ geoip-netflix, geosite-netflix ], outbound: 🎥 Netflix }
+    - { rule_set: geoip-spotify, outbound: 🎵 Spotify }
     - { rule_set: [ geosite-microsoft ], outbound: 📖 Microsoft }
     - { rule_set: [ geoip-apple, geosite-apple ], outbound: 🍎 Apple }
     - { rule_set: [ geoip-cn, geoip-private, geosite-private ], outbound: 🎯 全球直连 }
@@ -50,6 +50,8 @@ route:
   - { tag: geoip-netflix, type: remote, format: binary, url: https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/netflix.srs, download_detour: 🎯 全球直连 }
   - { tag: geoip-apple, type: remote, format: binary, url: https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/apple.srs, download_detour: 🎯 全球直连 }
   - { tag: geoip-cn, type: remote, format: binary, url: https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/cn.srs, download_detour: 🎯 全球直连 }
+  - { tag: geoip-spotify, type: remote, format: binary, url: https://gh-proxy.com/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/spotify.srs, download_detour: 🎯 全球直连 }
+  
   # senshinya 规则集
   - { tag: STUN, type: remote, url: https://gh-proxy.com/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/STUN/STUN.srs, format: binary, download_detour: 🎯 全球直连 }
   - { tag: BlockHttpDNS, type: remote, url: https://gh-proxy.com/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/BlockHttpDNS/BlockHttpDNS.srs, format: binary, download_detour: 🎯 全球直连 }
@@ -58,13 +60,13 @@ outbounds:
   - { tag: 🌵 手动选择, type: selector, interrupt_exist_connections: true, outbounds: [], filter: [ { action: all, keywords: [] } ] }
   - { tag: 🤖 AI, <<: *proxy }
   - { tag: 📲 Telegram, <<: *proxy }
-  - { tag: 🎵 TikTok, <<: *proxy }
+  - { tag: 🎥 TikTok, <<: *proxy }
   - { tag: 📹 YouTube, <<: *proxy }
+  - { tag: 🎵 Spotify, <<: *proxy }
   - { tag: 🧸 Line, <<: *proxy }
   - { tag: 🔍 Google, <<: *proxy }
   - { tag: 📖 Microsoft, <<: *proxy }
   - { tag: 🍎 Apple, <<: *proxy }
-  - { tag: 🎥 Netflix, <<: *proxy }
   - { tag: 🎯 全球直连, type: selector, interrupt_exist_connections: true, outbounds: [ 🎯 全局直连, 🚀 节点选择, 🌵 手动选择, ♻️ 自动选择 ] }
   - { tag: 🔈 广告拦截, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🎯 全局直连, 🚀 节点选择 ] }
   - { tag: 💧 泄漏拦截, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🎯 全局直连, 🚀 节点选择 ] }
