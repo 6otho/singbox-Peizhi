@@ -67,10 +67,10 @@ outbounds:
   - { tag: 🔍 Google, <<: *proxy }
   - { tag: 📖 Microsoft, <<: *proxy }
   - { tag: 🍎 Apple, <<: *proxy }
-  - { tag: 🎯 全球直连, type: selector, interrupt_exist_connections: true, outbounds: [ 🎯 全局直连, 🚀 节点选择, 🌵 手动选择, ♻️ 自动选择 ] }
-  - { tag: 🔈 广告拦截, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🎯 全局直连, 🚀 节点选择 ] }
-  - { tag: 💧 泄漏拦截, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🎯 全局直连, 🚀 节点选择 ] }
-  - { tag: 🔎 HttpDNS, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🎯 全局直连, 🚀 节点选择 ] }
+  - { tag: 🎯 全球直连, type: selector, interrupt_exist_connections: true, outbounds: [ 🇨🇳 全局直连, 🚀 节点选择, 🌵 手动选择, ♻️ 自动选择 ] }
+  - { tag: 🔈 广告拦截, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🇨🇳 全局直连, 🚀 节点选择 ] }
+  - { tag: 💧 泄漏拦截, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🇨🇳 全局直连, 🚀 节点选择 ] }
+  - { tag: 🔎 HttpDNS, type: selector, interrupt_exist_connections: true, outbounds: [ 🚫 拒绝连接, 🇨🇳 全局直连, 🚀 节点选择 ] }
   - { tag: ♻️ 自动选择, type: urltest, interrupt_exist_connections: true, url: https://www.gstatic.com/generate_204, interval: 3m, tolerance: 150, outbounds: [], filter: [ { action: all, keywords: [] } ] }
   
    ############ 全国家分组自动选择 ############
